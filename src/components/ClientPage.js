@@ -79,12 +79,13 @@ function ClientPage(props) {
         </Table.Header>
 
         <Table.Body>
-          {client.notes.map(note => (
-            <Table.Row>
-              <Table.Cell>{note.content}</Table.Cell>
-              <Table.Cell>{format(note.createdAt, "MM/DD/YYYY")}</Table.Cell>
-            </Table.Row>
-          ))}
+          {client.notes &&
+            client.notes.map(note => (
+              <Table.Row>
+                <Table.Cell>{note.content}</Table.Cell>
+                <Table.Cell>{format(note.createdAt, "MM/DD/YYYY")}</Table.Cell>
+              </Table.Row>
+            ))}
         </Table.Body>
       </Table>
       <Form onSubmit={submitNote}>
