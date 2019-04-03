@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Card, Icon } from "semantic-ui-react"
 import avatar from "../images/avatar.png"
+import { apiUrl } from "../config"
 
 const extra = <p>Revenue: $400</p>
 
@@ -9,9 +10,7 @@ function Clients() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(
-        "https://serverlesscrmapi.azurewebsites.net/api/clients"
-      )
+      const res = await fetch(apiUrl + "/clients")
       const data = await res.json()
       setClients(data)
     }
