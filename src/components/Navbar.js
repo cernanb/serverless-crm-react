@@ -33,11 +33,13 @@ export default class Navbar extends Component {
         </Menu.Item>
 
         <Menu.Item
-          name="upcomingEvents"
-          active={activeItem === "upcomingEvents"}
+          name="newClient"
+          as={Link}
+          to="/clients/new"
+          active={activeItem === "newClient"}
           onClick={this.handleItemClick}
         >
-          Upcoming Events
+          New Client
         </Menu.Item>
       </Menu>
     )
