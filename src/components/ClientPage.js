@@ -30,6 +30,7 @@ function ClientPage(props) {
   }, [])
 
   async function submitNote() {
+    setLoading(true)
     const res = await fetch(
       `${apiUrl}/clients/${props.match.params.id}/notes`,
       {
@@ -40,6 +41,7 @@ function ClientPage(props) {
     const data = await res.json()
     setNoteValue({ content: "" })
     setClient({ ...client, notes: client.notes.concat(data) })
+    setLoading(false)
   }
 
   function updateValue(e) {
